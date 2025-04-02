@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Interactive Steps Component - React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implements an interactive user interface (UI) component that guides the user through a multi-step process. It was built using React and demonstrates several fundamental concepts of the library.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The "Steps" component presents a numbered sequence of steps, along with a descriptive message for the current step. It includes navigation buttons ("Previous" and "Next") to move through the steps and a button to hide or show the entire component.
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/dcdc0696-a85e-4b48-89b7-7b80af0a9eb6" controls width="600">
+    Seu navegador não suporta o elemento de vídeo.
+  </video>
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Step Visualization:** Displays a numbered list of steps (1, 2, 3).
+- **Progress Indication:** Highlights the current step number and completed steps.
+- **Dynamic Messages:** Shows a specific message corresponding to the active step.
+- **Navigation:** Allows navigation between steps using the "Previous" and "Next" buttons.
+- **Visibility Toggle:** Includes a "Close" button (`&times;`) to show or hide the component.
+- **Per-Step Actions:** Demonstrates including an action button ("Learn how") within the step message.
+- **Componentization:** Uses reusable components (`Button`, `StepMessage`) for a modular structure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## State Management
 
-### `npm run build`
+The application's state is managed locally within the `Steps` component using the `useState` Hook:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **`step`**: Stores the current step number (initialized to `1`). It is updated using the callback form (`setStep(s => s - 1)`) to ensure safe updates based on the previous state.
+- **`isOpen`**: Stores a boolean indicating whether the component is visible (initialized to `true`). It is toggled using the callback form (`setIsOpen(is => !is)`).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Use/Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  **Clone the repository** (or ensure you have the project files).
 
-### `npm run eject`
+    ```
+    git clone https://github.com/ceferrei/steps-component-react.git
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  **Navigate to the project directory** in your terminal.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```
+    cd steps-component-react
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3.  **Install the necessary dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+4.  **Start the development server**:
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+5.  Open your browser and go to `http://localhost:3000` (or the port indicated in the terminal).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Key Concepts Demonstrated
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React Functional Components.
+- `useState` Hook for local state management.
+- Props for passing data and functions between components.
+- Component Composition (nesting `StepMessage` and `Button` within `Steps`).
+- Conditional Rendering (to show/hide the component with `isOpen` and to apply the `.active` class).
+- Event Handling (`onClick` on buttons).
+- Using Arrays to store data (messages).
+- Styling with CSS and classes.
+- Safe state updates using callbacks in `setState`.

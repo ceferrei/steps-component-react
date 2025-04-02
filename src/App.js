@@ -49,7 +49,7 @@ function Steps() {
                 textColor="#333"
                 onClick={() => alert(`Learn how to ${messages[step - 1]}`)}
               >
-                Lear how
+                Learn how
               </Button>
             </div>
           </StepMessage>
